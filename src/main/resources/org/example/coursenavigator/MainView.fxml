@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"  fx:controller="org.example.coursenavigator.MainController">
+
+    <top>
+        <ToolBar>
+            <Label text="🎓 Кросс-платформенная разработка" style="-fx-font-size: 16pt; -fx-font-weight: bold;"/>
+            <Separator orientation="VERTICAL"/>
+            <Button text="Обновить" onAction="#handleRefresh"/>
+            <Button text="Оффлайн режим" onAction="#toggleOfflineMode"/>
+        </ToolBar>
+    </top>
+
+    <left>
+        <ScrollPane>
+            <TreeView fx:id="courseTree" onMouseClicked="#handleTreeItemClick">
+                <TreeItem fx:id="rootItem" value="Курс" expanded="true">
+
+                </TreeItem>
+
+            </TreeView>
+        </ScrollPane>
+    </left>
+
+    <center>
+        <WebView fx:id="contentWebView" />
+    </center>
+
+    <bottom>
+        <ToolBar>
+            <Label fx:id="statusLabel" text="Готово"/>
+            <ProgressBar fx:id="progressBar" progress="0" prefWidth="150"/>
+        </ToolBar>
+    </bottom>
+
+</BorderPane>
